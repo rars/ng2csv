@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Ng2CsvService } from './ng2csv.service';
+import { Ng2CsvService } from './Ng2Csv.service';
 
 @NgModule({
   providers: [

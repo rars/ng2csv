@@ -12,7 +12,7 @@
     "noStrictGenericChecks": true
   },
   "files": [
-    "./src/ng2csv.module.ts"
+    "./src/Ng2Csv.module.ts"
   ],
   "angularCompilerOptions": {
     "skipTemplateCodegen": true
