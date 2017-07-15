@@ -1,6 +1,6 @@
 export default {
   format: 'umd',
-  moduleName: 'ng2csv',
+  moduleName: 'Ng2Csv',
   external: [
     '@angular/core',
     'file-saver'

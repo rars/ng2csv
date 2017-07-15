@@ -2,9 +2,12 @@
   "name": "ng2csv",
   "version": "0.1.0",
   "description": "Angular2 module for saving CSV files.",
-  "main": "index.js",
+  "main": "Ng2Csv.bundle.js",
+  "module": "Ng2Csv.module.js",
+  "jsnext:main": "Ng2Csv.module.js",
+  "types": "Ng2Csv.module.d.ts",
   "scripts": {
-    "build": "rm -rf dist && tsc -p tsconfig-esm.json && rollup -c rollup.config.js dist/ng2csv.module.js > dist/ng2csv.bundle.js && cp package.json dist && ngc && cp README.md dist",
+    "build": "rm -rf dist && tsc -p tsconfig-esm.json && rollup -c rollup.config.js dist/Ng2Csv.module.js > dist/Ng2Csv.bundle.js && cp package.json dist && ngc && cp README.md dist",
     "test": "karma start --single-run",
     "lint": "tslint -c tslint.json 'src/**/*.ts' 'test/**/*.ts'",
     "npmpublish": "cd dist && npm publish"
