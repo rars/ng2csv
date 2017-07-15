@@ -1,5 +1,3 @@
-var path = require('path');
-
 //jshint strict: false
 module.exports = function(config) {
   config.set({
@@ -19,10 +17,6 @@ module.exports = function(config) {
       // webpack watches dependencies
       devtool: 'inline-source-map',
       resolve: {
-        root: [
-          path.join(__dirname, 'src'),
-          path.join(__dirname, 'test')
-        ],
         extensions: ['.ts']
       },
       module: {
