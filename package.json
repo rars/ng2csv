@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "rm -rf dist && tsc -p tsconfig-esm.json && rollup -c rollup.config.js dist/ng2csv.module.js > dist/ng2csv.bundle.js && cp package.json dist && ngc && cp README.md dist",
-    "test": "karma start --single-run"
+    "test": "karma start --single-run",
+    "lint": "tslint -c tslint.json 'src/**/*.ts' 'test/**/*.ts'",
+    "npmpublish": "cd dist && npm publish"
   },
   "repository": {
     "type": "git",
@@ -54,6 +56,7 @@
     "rxjs": "^5.4.2",
     "ts-loader": "^2.2.2",
     "ts-node": "^3.2.0",
+    "tslint": "^5.5.0",
     "typescript": "^2.4.1",
     "webpack": "^3.2.0",
     "zone.js": "^0.7.2"
