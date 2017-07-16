@@ -17,7 +17,7 @@ module.exports = function(config) {
       // webpack watches dependencies
       devtool: 'inline-source-map',
       resolve: {
-        extensions: ['.ts']
+        extensions: ['.js', '.ts']
       },
       module: {
         loaders: [
@@ -38,8 +38,6 @@ module.exports = function(config) {
     },
 
     frameworks: ['jasmine'],
-
-    browsers: ['Chrome'],
 
     plugins: [
       'karma-chrome-launcher',

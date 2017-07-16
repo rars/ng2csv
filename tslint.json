@@ -14,7 +14,10 @@
             "objects": "never",
             "functions": "never",
             "typeLiterals": "never"
-        }]
+        }],
+        "ordered-imports": [
+            false
+        ]
     },
     "rulesDirectory": []
 }
