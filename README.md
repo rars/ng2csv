@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/rars/ng2csv.svg?branch=master)](https://travis-ci.org/rars/ng2csv)
 
++[![devDependency Status](https://david-dm.org/rars/ng2csv/dev-status.svg)](https://david-dm.org/rars/ng2csv#info=devDependencies)
+
 Angular 2 module for saving CSV files.
 
 ## Quickstart
@@ -98,3 +100,6 @@ this.ng2Csv.download(myData, 'file.csv', undefined, csvConfig);
 ## Contributions welcome!
 If you have a feature or improvement you would like to see included, please raise an issue or a PR and I will review.
 
+## License
+
+See the [LICENSE](LICENSE.md) file for license rights and limitations (MIT).
