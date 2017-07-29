@@ -7,7 +7,7 @@
   "jsnext:main": "Ng2Csv.module.js",
   "types": "Ng2Csv.module.d.ts",
   "scripts": {
-    "build": "rm -rf dist && tsc -p tsconfig-esm.json && rollup -c rollup.config.js dist/Ng2Csv.module.js > dist/Ng2Csv.bundle.js && cp package.json dist && ngc && cp README.md dist",
+    "build": "rm -rf dist && tsc -p tsconfig-esm.json && rollup -c rollup.config.js dist/Ng2Csv.module.js > dist/Ng2Csv.bundle.js && cp package.json dist && ngc && cp README.md dist && cp LICENSE.md dist",
     "test": "karma start --single-run",
     "lint": "tslint -c tslint.json 'src/**/*.ts' 'test/**/*.ts'",
     "npmpublish": "cd dist && npm publish"
