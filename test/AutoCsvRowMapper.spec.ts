@@ -25,6 +25,16 @@ describe('AutoCsvRowMapper', () => {
       expect(row[0]).toBe('5');
       expect(row[1]).toBe('Alice');
     });
+
+    it('should map missing properties to the empty string', () => {
+      const row: string[] = rowMapper.map({
+        Id: undefined,
+        Name: 'Bob'
+      });
+      expect(row.length).toBe(2);
+      expect(row[0]).toBe('');
+      expect(row[1]).toBe('Bob');
+    });
   });
 
   describe('getColumnNames()', () => {
