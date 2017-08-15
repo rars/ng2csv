@@ -22,7 +22,17 @@ export class AutoCsvRowMapper<T> implements ICsvRowMapper<T> {
     for (const property of Object.keys(firstRow)) {
       projections.push([
         property,
-        (x: T) => (x as any)[property].toString()
+        (x: T) => {
+          if (x.hasOwnProperty(property)) {
+            const propertyValue = (x as any)[property];
+            if (propertyValue === undefined || propertyValue === null) {
+              return '';
+            }
+            return propertyValue.toString();
+          } else {
+            return '';
+          }
+        }
       ]);
     }
 
