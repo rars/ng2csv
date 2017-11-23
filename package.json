@@ -1,6 +1,6 @@
 {
   "name": "ng2csv",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Angular2 module for saving CSV files.",
   "main": "Ng2Csv.bundle.js",
   "module": "Ng2Csv.module.js",

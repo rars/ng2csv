@@ -17,22 +17,13 @@ export class AutoCsvRowMapper<T> implements ICsvRowMapper<T> {
       );
     }
 
-    const firstRow = data[0];
     const projections: Array<[string, (obj: T) => string]> = [];
-    for (const property of Object.keys(firstRow)) {
+
+    const allKeys: string[] = this.getAllKeys(data);
+    for (const key of allKeys) {
       projections.push([
-        property,
-        (x: T) => {
-          if (x.hasOwnProperty(property)) {
-            const propertyValue = (x as any)[property];
-            if (propertyValue === undefined || propertyValue === null) {
-              return '';
-            }
-            return propertyValue.toString();
-          } else {
-            return '';
-          }
-        }
+        key,
+        this.createProjection(key)
       ]);
     }
 
@@ -47,5 +38,31 @@ export class AutoCsvRowMapper<T> implements ICsvRowMapper<T> {
 
   public map(obj: T): string[] {
     return this.derivedCsvRowMapper.map(obj);
+  }
+
+  private createProjection(property: string): (obj: T) => string {
+    return (x: T) => {
+      if (x.hasOwnProperty(property)) {
+        const propertyValue = (x as any)[property];
+        if (propertyValue === undefined || propertyValue === null) {
+          return '';
+        }
+        return propertyValue.toString();
+      } else {
+        return '';
+      }
+    };
+  }
+
+  private getAllKeys(objs: T[]): string[] {
+    const allKeys: any = {};
+
+    for (const obj of objs) {
+      for (const objectKey of Object.keys(obj)) {
+        allKeys[objectKey] = 1;
+      }
+    }
+
+    return Object.keys(allKeys);
   }
 }
