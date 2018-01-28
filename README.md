@@ -14,9 +14,9 @@ Angular 2 module for saving CSV files.
     ```
     import { BrowserModule } from '@angular/platform-browser';
     import { NgModule } from '@angular/core';
-    import { Ng2CsvModule } from 'ng2csv/Ng2Csv.module';
+    import { Ng2CsvModule } from 'ng2csv';
     import { AppComponent } from './app.component';
-    
+
     @NgModule({
       declarations: [
         AppComponent
@@ -33,8 +33,8 @@ Angular 2 module for saving CSV files.
 3. Inject the `Ng2CsvService` into your component:
     ```
     import { Component } from '@angular/core';
-    import { Ng2CsvService } from 'ng2csv/Ng2Csv.service';
-    
+    import { Ng2CsvService } from 'ng2csv';
+
     @Component({
       selector: 'app-root',
       templateUrl: './app.component.html',
@@ -43,7 +43,7 @@ Angular 2 module for saving CSV files.
     })
     export class AppComponent {
       public constructor(private ng2Csv: Ng2CsvService) {}
-    
+
       public download(): void {
         this.ng2Csv.download([
             {
@@ -69,14 +69,14 @@ Unless specified, an automatic mapping is used from the data to columns. It does
 ### Row headers and ordering
 You can output a subset of the data's properties to CSV by defining your own custom mapping. This allows you to specify the order columns are written in and what value is written for each row in each column.
 ```
-import { OrderedProjectionCsvRowMapper } from 'ng2csv/OrderedProjectionCsvRowMapper';
+import { OrderedProjectionCsvRowMapper } from 'ng2csv';
 // ...
 const rowMapper = new OrderedProjectionCsvRowMapper<MyType>([
     ['First Name', x => x.Name],
     ['Identifier', x => 'N' + x.Id.toString()]
 ]);
 this.ng2Csv.download(myData, 'file.csv', rowMapper);
-/* 
+/*
  Generates CSV:
  "First Name","Identifier"
  Alice,N1
@@ -87,7 +87,7 @@ this.ng2Csv.download(myData, 'file.csv', rowMapper);
 ### Delimiters, header row
 You can control what character is used to separate columns (e.g. to use ';' or tab separators rather than ',') and whether to include a header row.
 ```
-import { CsvConfiguration } from 'ng2csv/CsvConfiguration';
+import { CsvConfiguration } from 'ng2csv';
 // ...
 const csvConfig = new CsvConfiguration();
 csvConfig.delimiter = '\t';
