@@ -72,5 +72,82 @@ describe('Ng2CsvService', () => {
           '"id","name"\r\n'
           + '"1,000","Smith, Alice"\r\n2,"""Bob"" Smith"');
       }));
+
+    it('should output null values as configured value',
+      inject([Ng2CsvService], (ng2CsvService: Ng2CsvService) => {
+        const config = new CsvConfiguration();
+        config.outputValueForNull = 'NULL';
+
+        const csv = ng2CsvService.convertToCsv([
+            {
+              id: 'X1000',
+              name: 'Alice'
+            },
+            {
+              id: null,
+              name: 'Bob'
+            }
+          ],
+          new OrderedProjectionCsvRowMapper([
+            ['Id', x => x.id],
+            ['Name', x => x.name]
+          ]),
+          config);
+
+        expect(csv).toBe(
+          '"Id","Name"\r\n'
+          + 'X1000,Alice\r\nNULL,Bob'
+        );
+      }));
+
+    it('should output undefined values as configured value',
+      inject([Ng2CsvService], (ng2CsvService: Ng2CsvService) => {
+        const config = new CsvConfiguration();
+        config.outputValueForUndefined = 'UNDEFINED';
+
+        const csv = ng2CsvService.convertToCsv([
+            {
+              id: 'X1000',
+              name: 'Alice'
+            },
+            {
+              id: undefined,
+              name: 'Bob'
+            }
+          ],
+          new OrderedProjectionCsvRowMapper([
+            ['Id', x => x.id],
+            ['Name', x => x.name]
+          ]),
+          config);
+
+        expect(csv).toBe(
+          '"Id","Name"\r\n'
+          + 'X1000,Alice\r\nUNDEFINED,Bob'
+        );
+      }));
+
+    it('should output null/undefined values as empty string by default',
+      inject([Ng2CsvService], (ng2CsvService: Ng2CsvService) => {
+        const csv = ng2CsvService.convertToCsv([
+            {
+              id: 'X1000',
+              name: null
+            },
+            {
+              id: undefined,
+              name: 'Bob'
+            }
+          ],
+          new OrderedProjectionCsvRowMapper([
+            ['Id', x => x.id],
+            ['Name', x => x.name]
+          ]));
+
+        expect(csv).toBe(
+          '"Id","Name"\r\n'
+          + 'X1000,\r\n,Bob'
+        );
+      }));
   });
 });

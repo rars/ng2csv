@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import * as FileSaver from 'file-saver';
+import { saveAs } from 'file-saver';
 import { AutoCsvRowMapper } from './AutoCsvRowMapper';
 import { CsvConfiguration } from './CsvConfiguration';
 import { ICsvRowMapper } from './ICsvRowMapper';
@@ -17,7 +17,7 @@ export class Ng2CsvService {
       + (config.includeHeaderLine ? 'present' : 'absent');
 
     const csvBlob: Blob = new Blob([csvData], { type: mimeType });
-    FileSaver.saveAs(csvBlob, filename, true);
+    saveAs(csvBlob, filename, true);
   }
 
   public convertToCsv<T>(
@@ -42,11 +42,28 @@ export class Ng2CsvService {
 
     for (const row of data) {
       rows.push(csvRowMapper.map(row)
+        .map(x => this.mapNullOrUndefinedValues(x, config))
         .map(x => this.escapeRowValue(x, config))
         .join(config.delimiter));
     }
 
     return rows.join(config.newLine);
+  }
+
+  private mapNullOrUndefinedValues(
+      value: string,
+      config: CsvConfiguration): string {
+    switch (value) {
+      case null: {
+        return config.outputValueForNull;
+      }
+      case undefined: {
+        return config.outputValueForUndefined;
+      }
+      default: {
+        return value;
+      }
+    }
   }
 
   private escapeQuotes(

@@ -95,6 +95,16 @@ csvConfig.includeHeaderRow = false;
 this.ng2Csv.download(myData, 'file.csv', undefined, csvConfig);
 ```
 
+### Null or undefined values
+You can control how `null` or `undefined` values are written out in config.
+```
+import { CsvConfiguration } from 'ng2csv';
+// ...
+const csvConfig = new CsvConfiguration();
+csvConfig.outputValueForNull = 'NULL';
+csvConfig.outputValueForUndefined = 'UNDEFINED';
+```
+
 ## Contributions welcome!
 If you have a feature or improvement you would like to see included, please raise an issue or a PR and I will review.
 
