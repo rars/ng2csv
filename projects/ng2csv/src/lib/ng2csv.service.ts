@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { saveAs } from 'file-saver';
-import { AutoCsvRowMapper } from './AutoCsvRowMapper';
-import { CsvConfiguration } from './CsvConfiguration';
-import { ICsvRowMapper } from './ICsvRowMapper';
+import { AutoCsvRowMapper } from './auto-csv-row-mapper.class';
+import { CsvConfiguration } from './csv-configuration.class';
+import { ICsvRowMapper } from './csv-row-mapper.interface';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class Ng2CsvService {
   public download<T>(
       data: T[],

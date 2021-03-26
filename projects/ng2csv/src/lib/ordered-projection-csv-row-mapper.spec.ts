@@ -1,4 +1,4 @@
-import { OrderedProjectionCsvRowMapper } from '../src/OrderedProjectionCsvRowMapper';
+import { OrderedProjectionCsvRowMapper } from './ordered-projection-csv-row-mapper.class';
 
 describe('OrderedProjectionCsvRowMapper', () => {
   interface IMyType {

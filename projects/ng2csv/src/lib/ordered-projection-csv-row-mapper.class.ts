@@ -1,4 +1,4 @@
-import { ICsvRowMapper } from './ICsvRowMapper';
+import { ICsvRowMapper } from './csv-row-mapper.interface';
 
 export class OrderedProjectionCsvRowMapper<T>
     implements ICsvRowMapper<T> {

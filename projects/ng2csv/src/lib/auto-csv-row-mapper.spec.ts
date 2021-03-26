@@ -1,4 +1,4 @@
-import { AutoCsvRowMapper } from '../src/AutoCsvRowMapper';
+import { AutoCsvRowMapper } from './auto-csv-row-mapper.class';
 
 describe('AutoCsvRowMapper', () => {
   interface IMyType {
