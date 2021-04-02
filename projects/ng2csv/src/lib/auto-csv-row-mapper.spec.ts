@@ -2,10 +2,10 @@ import { AutoCsvRowMapper } from './auto-csv-row-mapper.class';
 
 describe('AutoCsvRowMapper', () => {
   interface IMyType {
-    Id: number;
-    Name: string;
-    Address?: string;
-    Email?: string;
+    id: number;
+    name: string;
+    address?: string;
+    email?: string;
   }
 
   let rowMapper: AutoCsvRowMapper<IMyType>;
@@ -15,57 +15,53 @@ describe('AutoCsvRowMapper', () => {
 
   beforeEach(() => {
     myObject = {
-      Id: 5,
-      Name: 'Alice'
+      id: 5,
+      name: 'Alice',
     };
 
     mySecondObject = {
-      Address: 'Secret Location',
-      Id: 6,
-      Name: 'Bob'
+      address: 'Secret Location',
+      id: 6,
+      name: 'Bob',
     };
 
     myThirdObject = {
-      Email: 'charles@mail.com',
-      Id: 7,
-      Name: 'Charles'
+      email: 'charles@mail.com',
+      id: 7,
+      name: 'Charles',
     };
 
-    rowMapper = new AutoCsvRowMapper([
-      myObject,
-      mySecondObject,
-      myThirdObject
-    ]);
+    rowMapper = new AutoCsvRowMapper([myObject, mySecondObject, myThirdObject]);
   });
 
   describe('map()', () => {
     it('should return row mapping for object', () => {
       const columnNames: string[] = rowMapper.getColumnNames();
       const row: string[] = rowMapper.map({
-        Address: 'My Address',
-        Email: 'myemail@mail.com',
-        Id: 1,
-        Name: 'My Name'
+        address: 'My Address',
+        email: 'myemail@mail.com',
+        id: 1,
+        name: 'My Name',
       });
 
       expect(row.length).toBe(4);
-      expect(row[columnNames.indexOf('Id')]).toBe('1');
-      expect(row[columnNames.indexOf('Name')]).toBe('My Name');
-      expect(row[columnNames.indexOf('Address')]).toBe('My Address');
-      expect(row[columnNames.indexOf('Email')]).toBe('myemail@mail.com');
+      expect(row[columnNames.indexOf('id')]).toBe('1');
+      expect(row[columnNames.indexOf('name')]).toBe('My Name');
+      expect(row[columnNames.indexOf('address')]).toBe('My Address');
+      expect(row[columnNames.indexOf('email')]).toBe('myemail@mail.com');
     });
 
     it('should map missing properties to the empty string', () => {
       const columnNames: string[] = rowMapper.getColumnNames();
       const row: string[] = rowMapper.map({
-        Id: undefined,
-        Name: 'Bob'
+        id: undefined,
+        name: 'Bob',
       });
       expect(row.length).toBe(4);
-      expect(row[columnNames.indexOf('Id')]).toBe('');
-      expect(row[columnNames.indexOf('Name')]).toBe('Bob');
-      expect(row[columnNames.indexOf('Address')]).toBe('');
-      expect(row[columnNames.indexOf('Email')]).toBe('');
+      expect(row[columnNames.indexOf('id')]).toBe('');
+      expect(row[columnNames.indexOf('name')]).toBe('Bob');
+      expect(row[columnNames.indexOf('address')]).toBe('');
+      expect(row[columnNames.indexOf('email')]).toBe('');
     });
   });
 
@@ -73,10 +69,10 @@ describe('AutoCsvRowMapper', () => {
     it('should return list of column names', () => {
       const columnNames: string[] = rowMapper.getColumnNames();
       expect(columnNames.length).toBe(4);
-      expect(columnNames.indexOf('Address')).toBeGreaterThan(-1);
-      expect(columnNames.indexOf('Email')).toBeGreaterThan(-1);
-      expect(columnNames.indexOf('Id')).toBeGreaterThan(-1);
-      expect(columnNames.indexOf('Name')).toBeGreaterThan(-1);
+      expect(columnNames.indexOf('address')).toBeGreaterThan(-1);
+      expect(columnNames.indexOf('email')).toBeGreaterThan(-1);
+      expect(columnNames.indexOf('id')).toBeGreaterThan(-1);
+      expect(columnNames.indexOf('name')).toBeGreaterThan(-1);
     });
   });
 });
