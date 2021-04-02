@@ -2,24 +2,24 @@ import { OrderedProjectionCsvRowMapper } from './ordered-projection-csv-row-mapp
 
 describe('OrderedProjectionCsvRowMapper', () => {
   interface IMyType {
-    Id: number;
-    Name: string;
+    id: number;
+    name: string;
   }
 
   let rowMapper: OrderedProjectionCsvRowMapper<IMyType>;
 
   beforeEach(() => {
     rowMapper = new OrderedProjectionCsvRowMapper([
-      ['Id', x => x.Id.toString()],
-      ['Name', x => x.Name]
+      ['Id', (x) => x.id.toString()],
+      ['Name', (x) => x.name],
     ]);
   });
 
   describe('map()', () => {
     it('should return row mapping for object', () => {
       const myObject: IMyType = {
-        Id: 2,
-        Name: 'Alice'
+        id: 2,
+        name: 'Alice',
       };
 
       const row: string[] = rowMapper.map(myObject);
