@@ -43,6 +43,5 @@
   },
   "cli": {
     "analytics": false
-  },
-  "defaultProject": "ng2csv"
+  }
 }
