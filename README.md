@@ -1,8 +1,8 @@
 # ng2csv
 
-[![Build Status](https://travis-ci.org/rars/ng2csv.svg?branch=master)](https://travis-ci.org/rars/ng2csv)
+[![Node.js CI](https://github.com/rars/ng2csv/actions/workflows/node.js.yml/badge.svg)](https://github.com/rars/ng2csv/actions/workflows/node.js.yml)
 
-Angular 2 module for saving CSV files.
+Angular module for saving CSV files.
 
 ## Quickstart
 
