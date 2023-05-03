@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://github.com/rars/ng2csv/compare/v2.0.0...v2.0.1) (2023-05-03)
+
+
+### Bug Fixes
+
+* **ng2csv:** correct peer dependency ([4460f31](https://github.com/rars/ng2csv/commit/4460f319570c1077907ed2fd37d70f060b2aecf6))
+
 ## [2.0.0](https://github.com/rars/ng2csv/compare/v1.0.0...v2.0.0) (2023-02-02)
 
 
