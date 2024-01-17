@@ -2,34 +2,36 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [4.0.0](https://github.com/rars/ng2csv/compare/v3.0.0...v4.0.0) (2023-11-08)
-
-
-### Features
-
-* **ng2csv:** update to Angular 17 ([d5d3b26](https://github.com/rars/ng2csv/commit/d5d3b2603457708707dcfc23fd5064200b203e31))
-
-## [3.0.0](https://github.com/rars/ng2csv/compare/v2.0.1...v3.0.0) (2023-05-04)
-
-
-### Features
-
-* **ng2csv:** update to Angular 16 ([8351f72](https://github.com/rars/ng2csv/commit/8351f722a34713a9f3736bae48a0d91b9162d528))
-
-### [2.0.1](https://github.com/rars/ng2csv/compare/v2.0.0...v2.0.1) (2023-05-03)
-
+### [4.0.1](https://github.com/rars/ng2csv/compare/v4.0.0...v4.0.1) (2024-01-17)
 
 ### Bug Fixes
 
-* **ng2csv:** correct peer dependency ([4460f31](https://github.com/rars/ng2csv/commit/4460f319570c1077907ed2fd37d70f060b2aecf6))
+- **ng2csv:** include README.md and LICENSE in npm package
 
-## [2.0.0](https://github.com/rars/ng2csv/compare/v1.0.0...v2.0.0) (2023-02-02)
-
+## [4.0.0](https://github.com/rars/ng2csv/compare/v3.0.0...v4.0.0) (2023-11-08)
 
 ### Features
 
-* **ng2csv:** update rxjs to 7 ([a837114](https://github.com/rars/ng2csv/commit/a837114d5a3ad26f891de00cf232e62a2c834e77))
-* **ng2csv:** update to Angular 15 ([3df5bb8](https://github.com/rars/ng2csv/commit/3df5bb87082e47e5a7a637950d0d545149b8488b))
+- **ng2csv:** update to Angular 17 ([d5d3b26](https://github.com/rars/ng2csv/commit/d5d3b2603457708707dcfc23fd5064200b203e31))
+
+## [3.0.0](https://github.com/rars/ng2csv/compare/v2.0.1...v3.0.0) (2023-05-04)
+
+### Features
+
+- **ng2csv:** update to Angular 16 ([8351f72](https://github.com/rars/ng2csv/commit/8351f722a34713a9f3736bae48a0d91b9162d528))
+
+### [2.0.1](https://github.com/rars/ng2csv/compare/v2.0.0...v2.0.1) (2023-05-03)
+
+### Bug Fixes
+
+- **ng2csv:** correct peer dependency ([4460f31](https://github.com/rars/ng2csv/commit/4460f319570c1077907ed2fd37d70f060b2aecf6))
+
+## [2.0.0](https://github.com/rars/ng2csv/compare/v1.0.0...v2.0.0) (2023-02-02)
+
+### Features
+
+- **ng2csv:** update rxjs to 7 ([a837114](https://github.com/rars/ng2csv/commit/a837114d5a3ad26f891de00cf232e62a2c834e77))
+- **ng2csv:** update to Angular 15 ([3df5bb8](https://github.com/rars/ng2csv/commit/3df5bb87082e47e5a7a637950d0d545149b8488b))
 
 <a name="1.0.0"></a>
 
