@@ -1,11 +1,26 @@
 {
   "name": "ng2csv",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "dependencies": {
     "tslib": "^2.0.0"
   },
   "peerDependencies": {
     "@angular/core": "^17.0.0",
     "file-saver": "^2.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rars/ng2csv"
+  },
+  "keywords": [
+    "Angular",
+    "ng",
+    "csv"
+  ],
+  "author": "Richard Russell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rars/ng2csv/issues"
+  },
+  "homepage": "https://github.com/rars/ng2csv#readme"
 }
