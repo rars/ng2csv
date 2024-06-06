@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0](https://github.com/rars/ng2csv/compare/v4.0.2...v5.0.0) (2024-06-06)
+
+
+### Features
+
+* **ng2csv:** update to Angular 18 ([0a8f2bb](https://github.com/rars/ng2csv/commit/0a8f2bb3574effa22b7066360f01d44d9667fa4b))
+
 ## [4.0.2](https://github.com/rars/ng2csv/compare/v4.0.1...v4.0.2) (2024-01-18)
 
 ### Bug Fixes
