@@ -26,25 +26,25 @@
     "zone.js": "~0.14.2"
   },
   "devDependencies": {
-    "@angular-devkit/architect": "^0.1800.3",
+    "@angular-devkit/architect": "^0.1802.5",
     "@angular-devkit/build-angular": "^18.0.3",
     "@angular-eslint/builder": "^18.0.1",
     "@angular-eslint/eslint-plugin": "^18.0.1",
     "@angular-eslint/eslint-plugin-template": "^18.0.1",
-    "@angular-eslint/schematics": "18.0.1",
+    "@angular-eslint/schematics": "18.3.1",
     "@angular-eslint/template-parser": "^18.0.1",
     "@angular/cli": "^18.0.3",
     "@angular/compiler-cli": "^18.0.2",
     "@angular/language-service": "^18.0.2",
-    "@commitlint/cli": "^18.4.4",
-    "@commitlint/config-conventional": "^18.4.4",
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
     "@types/jasmine": "~5.1.4",
     "@types/jasminewd2": "~2.0.3",
-    "@typescript-eslint/eslint-plugin": "^7.2.0",
-    "@typescript-eslint/parser": "^7.2.0",
-    "eslint": "^8.57.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^8.57.1",
     "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-jsdoc": "^48.0.2",
+    "eslint-plugin-jsdoc": "^50.2.4",
     "eslint-plugin-prefer-arrow": "^1.2.3",
     "jasmine-core": "~5.1.1",
     "jasmine-spec-reporter": "~7.0.0",
@@ -55,7 +55,7 @@
     "karma-jasmine-html-reporter": "^2.0.0",
     "ng-packagr": "^18.0.0",
     "standard-version": "^9.1.1",
-    "typescript": "~5.4.5"
+    "typescript": "~5.5.4"
   },
   "config": {
     "commitizen": {
