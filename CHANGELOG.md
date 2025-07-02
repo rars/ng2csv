@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.0.0](https://github.com/rars/ng2csv/compare/v6.0.0...v7.0.0) (2025-07-02)
+
+
+### Features
+
+* update to Angular 20 ([9e9e3b8](https://github.com/rars/ng2csv/commit/9e9e3b8337198aca3f831d40085d00eb90302dcb))
+
 ## [6.0.0](https://github.com/rars/ng2csv/compare/v5.0.0...v6.0.0) (2024-12-06)
 
 
