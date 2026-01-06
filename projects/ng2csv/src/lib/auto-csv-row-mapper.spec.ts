@@ -37,7 +37,7 @@ describe('AutoCsvRowMapper', () => {
   describe('map()', () => {
     it('should return row mapping for object', () => {
       const columnNames: string[] = rowMapper.getColumnNames();
-      const row: string[] = rowMapper.map({
+      const row: (string | null | undefined)[] = rowMapper.map({
         address: 'My Address',
         email: 'myemail@mail.com',
         id: 1,
@@ -53,12 +53,12 @@ describe('AutoCsvRowMapper', () => {
 
     it('should map missing properties to the empty string', () => {
       const columnNames: string[] = rowMapper.getColumnNames();
-      const row: string[] = rowMapper.map({
-        id: undefined,
+      const row: (string | null | undefined)[] = rowMapper.map({
+        id: 0,
         name: 'Bob',
       });
       expect(row.length).toBe(4);
-      expect(row[columnNames.indexOf('id')]).toBe('');
+      expect(row[columnNames.indexOf('id')]).toBe('0');
       expect(row[columnNames.indexOf('name')]).toBe('Bob');
       expect(row[columnNames.indexOf('address')]).toBe('');
       expect(row[columnNames.indexOf('email')]).toBe('');

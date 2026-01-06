@@ -4,26 +4,35 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
-    "esModuleInterop": true,
     "declaration": false,
     "experimentalDecorators": true,
-    "module": "es2020",
-    "moduleResolution": "bundler",
     "importHelpers": true,
+    "isolatedModules": true,
+    "module": "preserve",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "skipLibCheck": true,
+    "strict": true,
     "target": "ES2022",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
     "paths": {
-      "ng2csv": [
-        "dist/ng2csv/ng2csv",
-        "dist/ng2csv"
-      ]
-    },
-    "useDefineForClassFields": false
+      "ng2csv": ["dist/ng2csv"]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
-  }
+    "strictInjectionParameters": true,
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  },
+  "references": [
+    { "path": "./projects/ng2csv/tsconfig.lib.json" },
+    { "path": "./projects/ng2csv/tsconfig.lib.prod.json" },
+    { "path": "./projects/ng2csv/tsconfig.spec.json" }
+  ]
 }

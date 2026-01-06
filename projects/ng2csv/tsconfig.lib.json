@@ -1,6 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "composite": true,
     "outDir": "../../out-tsc/lib",
     "declarationMap": true,
     "declaration": true,
@@ -12,8 +13,5 @@
     "strictMetadataEmit": true,
     "enableResourceInlining": true
   },
-  "exclude": [
-    "src/test.ts",
-    "**/*.spec.ts"
-  ]
+  "exclude": ["**/*.spec.ts"]
 }

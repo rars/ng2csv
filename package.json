@@ -1,11 +1,11 @@
 {
   "name": "ng2csv",
-  "version": "7.0.0",
+  "version": "8.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build ng2csv --configuration production",
-    "test": "ng test ng2csv --watch false",
+    "test": "ng test ng2csv --no-watch",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "release": "standard-version"
@@ -38,8 +38,7 @@
     "@angular/language-service": "^21.0.6",
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
-    "@types/jasmine": "~5.1.4",
-    "@types/jasminewd2": "~2.0.3",
+    "@types/file-saver": "^2.0.7",
     "@typescript-eslint/eslint-plugin": "^8.35.1",
     "@typescript-eslint/parser": "^8.35.1",
     "angular-eslint": "^21.1.0",
@@ -47,16 +46,11 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jsdoc": "^61.1.2",
     "eslint-plugin-prefer-arrow": "^1.2.3",
-    "jasmine-core": "~5.1.1",
-    "jasmine-spec-reporter": "~7.0.0",
-    "karma": "~6.4.2",
-    "karma-chrome-launcher": "~3.2.0",
-    "karma-coverage-istanbul-reporter": "~3.0.2",
-    "karma-jasmine": "~5.1.0",
-    "karma-jasmine-html-reporter": "^2.0.0",
+    "jsdom": "^27.4.0",
     "ng-packagr": "^21.0.1",
     "standard-version": "^9.1.1",
-    "typescript": "~5.9.3"
+    "typescript": "~5.9.3",
+    "vitest": "^4.0.16"
   },
   "config": {
     "commitizen": {
