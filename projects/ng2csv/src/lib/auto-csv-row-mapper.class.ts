@@ -1,30 +1,23 @@
 import { ICsvRowMapper } from './csv-row-mapper.interface';
 import { OrderedProjectionCsvRowMapper } from './ordered-projection-csv-row-mapper.class';
 
-export class AutoCsvRowMapper<T> implements ICsvRowMapper<T> {
-
+export class AutoCsvRowMapper<T extends object> implements ICsvRowMapper<T> {
   private derivedCsvRowMapper: OrderedProjectionCsvRowMapper<T>;
 
   public constructor(data: T[]) {
     if (!data || data.length === 0) {
-      throw new Error(
-        'Parameter \'data\' must be a non-empty array of objects.');
+      throw new Error("Parameter 'data' must be a non-empty array of objects.");
     }
 
     if (typeof data[0] !== 'object') {
-      throw new Error(
-        'Parameter \'data\' must contain objects.'
-      );
+      throw new Error("Parameter 'data' must contain objects.");
     }
 
     const projections: Array<[string, (obj: T) => string]> = [];
 
     const allKeys: string[] = this.getAllKeys(data);
     for (const key of allKeys) {
-      projections.push([
-        key,
-        this.createProjection(key)
-      ]);
+      projections.push([key, this.createProjection(key)]);
     }
 
     this.derivedCsvRowMapper = new OrderedProjectionCsvRowMapper<T>(
@@ -36,14 +29,14 @@ export class AutoCsvRowMapper<T> implements ICsvRowMapper<T> {
     return this.derivedCsvRowMapper.getColumnNames();
   }
 
-  public map(obj: T): string[] {
+  public map(obj: T): (string | null | undefined)[] {
     return this.derivedCsvRowMapper.map(obj);
   }
 
   private createProjection(property: string): (obj: T) => string {
     return (x: T) => {
-      if (x.hasOwnProperty(property)) {
-        const propertyValue = (x as any)[property];
+      if (x && typeof x === 'object' && Object.hasOwn(x, property)) {
+        const propertyValue = x[property as keyof T];
         if (propertyValue === undefined || propertyValue === null) {
           return '';
         }

@@ -18,15 +18,16 @@
           "configurations": {
             "production": {
               "tsConfig": "projects/ng2csv/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ng2csv/tsconfig.lib.json"
             }
           }
         },
         "test": {
-          "builder": "@angular/build:karma",
+          "builder": "@angular/build:unit-test",
           "options": {
-            "main": "projects/ng2csv/src/test.ts",
-            "tsConfig": "projects/ng2csv/tsconfig.spec.json",
-            "karmaConfig": "projects/ng2csv/karma.conf.js"
+             "tsConfig": "projects/ng2csv/tsconfig.spec.json"
           }
         },
         "lint": {

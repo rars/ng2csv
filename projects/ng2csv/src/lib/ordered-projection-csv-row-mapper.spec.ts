@@ -22,7 +22,7 @@ describe('OrderedProjectionCsvRowMapper', () => {
         name: 'Alice',
       };
 
-      const row: string[] = rowMapper.map(myObject);
+      const row: (string | null | undefined)[] = rowMapper.map(myObject);
       expect(row.length).toBe(2);
       expect(row[0]).toBe('2');
       expect(row[1]).toBe('Alice');
