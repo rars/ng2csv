@@ -30,8 +30,20 @@
     "strictTemplates": true
   },
   "references": [
-    { "path": "./projects/ng2csv/tsconfig.lib.json" },
-    { "path": "./projects/ng2csv/tsconfig.lib.prod.json" },
-    { "path": "./projects/ng2csv/tsconfig.spec.json" }
+    {
+      "path": "./projects/ng2csv/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ng2csv/tsconfig.lib.prod.json"
+    },
+    {
+      "path": "./projects/ng2csv/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/demo/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/demo/tsconfig.spec.json"
+    }
   ]
 }
