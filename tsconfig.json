@@ -1,7 +1,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
@@ -20,7 +19,7 @@
     "strict": true,
     "target": "ES2022",
     "paths": {
-      "ng2csv": ["dist/ng2csv"]
+      "ng2csv": ["./projects/ng2csv/src/public-api.ts"]
     }
   },
   "angularCompilerOptions": {

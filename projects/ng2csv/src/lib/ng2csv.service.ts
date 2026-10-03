@@ -1,18 +1,16 @@
-import { Injectable } from '@angular/core';
+import { Service } from '@angular/core';
 import { saveAs } from 'file-saver';
 import { AutoCsvRowMapper } from './auto-csv-row-mapper.class';
 import { CsvConfiguration } from './csv-configuration.class';
 import { ICsvRowMapper } from './csv-row-mapper.interface';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Service()
 export class Ng2CsvService {
   public download<T extends object>(
     data: T[],
     filename: string,
     csvRowMapper?: ICsvRowMapper<T>,
-    config: CsvConfiguration = new CsvConfiguration()
+    config: CsvConfiguration = new CsvConfiguration(),
   ): void {
     const csvData: string = this.convertToCsv(data, csvRowMapper, config);
 
@@ -26,7 +24,7 @@ export class Ng2CsvService {
   public convertToCsv<T extends object>(
     data: T[],
     csvRowMapper?: ICsvRowMapper<T>,
-    config: CsvConfiguration = new CsvConfiguration()
+    config: CsvConfiguration = new CsvConfiguration(),
   ): string {
     if (csvRowMapper === undefined) {
       csvRowMapper = new AutoCsvRowMapper(data);
@@ -42,7 +40,7 @@ export class Ng2CsvService {
             .getColumnNames()
             .map((x) => this.escapeQuotes(x, config.quote))
             .join(headerFieldSeparator) +
-          config.quote
+          config.quote,
       );
     }
 
@@ -52,7 +50,7 @@ export class Ng2CsvService {
           .map(row)
           .map((x) => this.mapNullOrUndefinedValues(x, config))
           .map((x) => this.escapeRowValue(x, config))
-          .join(config.delimiter)
+          .join(config.delimiter),
       );
     }
 
@@ -61,7 +59,7 @@ export class Ng2CsvService {
 
   private mapNullOrUndefinedValues(
     value: string | null | undefined,
-    config: CsvConfiguration
+    config: CsvConfiguration,
   ): string {
     switch (value) {
       case null: {
@@ -79,7 +77,7 @@ export class Ng2CsvService {
   private escapeQuotes(value: string, quoteChar: string): string {
     return value.replace(
       new RegExp(quoteChar.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'),
-      quoteChar + quoteChar
+      quoteChar + quoteChar,
     );
   }
 
