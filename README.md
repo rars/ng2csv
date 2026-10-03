@@ -2,66 +2,47 @@
 
 [![Node.js CI](https://github.com/rars/ng2csv/actions/workflows/node.js.yml/badge.svg)](https://github.com/rars/ng2csv/actions/workflows/node.js.yml)
 
-Angular module for saving CSV files.
+Angular library for saving CSV files.
 
 ## Quickstart
 
 1. Install `file-saver` and `ng2csv` modules from npm:
-   ```
-   npm install file-saver ng2csv --save
-   ```
-2. Import `Ng2CsvModule` to your app:
 
-   ```
-   import { BrowserModule } from '@angular/platform-browser';
-   import { NgModule } from '@angular/core';
-   import { Ng2CsvModule } from 'ng2csv';
-   import { AppComponent } from './app.component';
+```bash
+npm install file-saver ng2csv --save
+```
 
-   @NgModule({
-     declarations: [
-       AppComponent
-     ],
-     imports: [
-       BrowserModule,
-       Ng2CsvModule
-     ],
-     providers: [],
-     bootstrap: [AppComponent]
-   })
-   export class AppModule { }
-   ```
+2. Inject the `Ng2CsvService` into your component:
 
-3. Inject the `Ng2CsvService` into your component:
+```ts
+import { Component, inject } from '@angular/core';
+import { Ng2CsvService } from 'ng2csv';
 
-   ```
-   import { Component } from '@angular/core';
-   import { Ng2CsvService } from 'ng2csv';
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+})
+export class AppComponent {
+  private readonly ng2Csv = inject(Ng2CsvService);
 
-   @Component({
-     selector: 'app-root',
-     templateUrl: './app.component.html',
-     styleUrls: ['./app.component.css'],
-     providers: [Ng2CsvService]
-   })
-   export class AppComponent {
-     public constructor(private ng2Csv: Ng2CsvService) {}
-
-     public download(): void {
-       this.ng2Csv.download([
-           {
-             id: 1,
-             name: 'Alice'
-           },
-           {
-             id: 2,
-             name: 'Bob'
-           }
-         ],
-         'names.csv');
-     }
-   }
-   ```
+  public download(): void {
+    this.ng2Csv.download(
+      [
+        {
+          id: 1,
+          name: 'Alice',
+        },
+        {
+          id: 2,
+          name: 'Bob',
+        },
+      ],
+      'names.csv',
+    );
+  }
+}
+```
 
 ## Configuration
 
@@ -73,12 +54,12 @@ Unless specified, an automatic mapping is used from the data to columns. It does
 
 You can output a subset of the data's properties to CSV by defining your own custom mapping. This allows you to specify the order columns are written in and what value is written for each row in each column.
 
-```
+```ts
 import { OrderedProjectionCsvRowMapper } from 'ng2csv';
 // ...
 const rowMapper = new OrderedProjectionCsvRowMapper<MyType>([
-    ['First Name', x => x.Name],
-    ['Identifier', x => 'N' + x.Id.toString()]
+  ['First Name', (x) => x.Name],
+  ['Identifier', (x) => 'N' + x.Id.toString()],
 ]);
 this.ng2Csv.download(myData, 'file.csv', rowMapper);
 /*
@@ -93,7 +74,7 @@ this.ng2Csv.download(myData, 'file.csv', rowMapper);
 
 You can control what character is used to separate columns (e.g. to use ';' or tab separators rather than ',') and whether to include a header row.
 
-```
+```ts
 import { CsvConfiguration } from 'ng2csv';
 // ...
 const csvConfig = new CsvConfiguration();
@@ -106,7 +87,7 @@ this.ng2Csv.download(myData, 'file.csv', undefined, csvConfig);
 
 You can control how `null` or `undefined` values are written out in config.
 
-```
+```ts
 import { CsvConfiguration } from 'ng2csv';
 // ...
 const csvConfig = new CsvConfiguration();
