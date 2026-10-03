@@ -21,7 +21,7 @@ export class AutoCsvRowMapper<T extends object> implements ICsvRowMapper<T> {
     }
 
     this.derivedCsvRowMapper = new OrderedProjectionCsvRowMapper<T>(
-      projections
+      projections,
     );
   }
 
@@ -48,7 +48,7 @@ export class AutoCsvRowMapper<T extends object> implements ICsvRowMapper<T> {
   }
 
   private getAllKeys(objs: T[]): string[] {
-    const allKeys: any = {};
+    const allKeys: { [key: string]: number } = {};
 
     for (const obj of objs) {
       for (const objectKey of Object.keys(obj)) {
