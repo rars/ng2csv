@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [9.0.0](https://github.com/rars/ng2csv/compare/v8.0.0...v9.0.0) (2026-10-06)
+
+
+### Features
+
+* **ng2csv:** update to Angular 22 ([d1c2c6d](https://github.com/rars/ng2csv/commit/d1c2c6d04f4652b3bad4d70bc339eb4d4bc906c1))
+
 ## [8.0.0](https://github.com/rars/ng2csv/compare/v7.0.0...v8.0.0) (2026-01-06)
 
 
